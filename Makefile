@@ -3,11 +3,17 @@ CC := clang
 
 SERVER_SRC := src/server/server.cpp
 
-server: ./bin/server
+server: bin/server
 
-./bin/server: $(SERVER_SRC)
+bin/server: objs/game.o $(SERVER_SRC)
 	mkdir -p bin
-	$(CXX) $(SERVER_SRC) -o ./bin/server
+	$(CXX) $(SERVER_SRC) objs/game.o -o ./bin/server
+
+objs:
+	mkdir -p objs
+
+objs/game.o: objs src/server/game.h src/server/game.cpp
+	$(CXX) src/server/game.cpp -c -o ./objs/game.o
 
 clean:
 	rm -rf build

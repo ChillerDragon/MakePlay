@@ -5,6 +5,7 @@
 void CServer::OnInit()
 {
 	puts("server init");
+	m_Game.OnRoundStart();
 }
 
 void CServer::OnTick()
