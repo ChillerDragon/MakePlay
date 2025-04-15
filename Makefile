@@ -1,7 +1,7 @@
 CXX := clang++
 CC := clang
 
-SERVER_SRCS := $(wildcard src/server/*.cpp)
+SERVER_SRCS := $(wildcard src/server/*.cpp src/server/game/*.cpp)
 SERVER_OBJS := $(SERVER_SRCS:.cpp=.o)
 
 server: bin/server
