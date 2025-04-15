@@ -10,9 +10,6 @@ server: $(SERVER_OBJS)
 objs:
 	mkdir -p objs
 
-objs/%.o: src/server/%.cpp | objs
-	$(CXX) -c $< -o objs/$@
-
 clean:
 	find . -name "*.o" -delete
 	rm -rf objs
