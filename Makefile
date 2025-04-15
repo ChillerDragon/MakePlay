@@ -5,9 +5,11 @@ SERVER_SRC := src/server/server.cpp
 
 server: bin/server
 
-bin/server: objs/game.o objs/player.o $(SERVER_SRC)
-	mkdir -p bin
+bin/server: bin objs/game.o objs/player.o $(SERVER_SRC)
 	$(CXX) $(SERVER_SRC) objs/game.o objs/player.o -o ./bin/server
+
+bin:
+	mkdir -p bin
 
 objs:
 	mkdir -p objs
