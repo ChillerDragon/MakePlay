@@ -5,16 +5,19 @@ SERVER_SRC := src/server/server.cpp
 
 server: bin/server
 
-bin/server: objs/game.o objs/player.o $(SERVER_SRC)
-	@mkdir -p bin
+bin/server: objs/game.o objs/player.o $(SERVER_SRC) | bin
 	$(CXX) $(SERVER_SRC) objs/game.o objs/player.o -o ./bin/server
 
-objs/game.o: src/server/game.h src/server/game.cpp
-	@mkdir -p objs
+bin:
+	mkdir -p bin
+
+objs:
+	mkdir -p objs
+
+objs/game.o: src/server/game.h src/server/game.cpp | objs
 	$(CXX) src/server/game.cpp -c -o ./objs/game.o
 
-objs/player.o: src/server/player.h src/server/player.cpp
-	@mkdir -p objs
+objs/player.o: src/server/player.h src/server/player.cpp | objs
 	$(CXX) src/server/player.cpp -c -o ./objs/player.o
 
 clean:

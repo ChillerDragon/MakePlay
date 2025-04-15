@@ -4,6 +4,6 @@
 
 void CGame::OnRoundStart()
 {
-	puts("CGame::OnRoundStart()");
+	puts("CGame::OnRoundStart() uwu");
 	m_aPlayers[0].Jump();
 }
