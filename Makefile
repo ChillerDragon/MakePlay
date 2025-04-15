@@ -4,4 +4,14 @@ CC := clang
 SERVER_SRC := src/server/server.cpp
 
 server: $(SERVER_SRC)
-	$(CXX) $(SERVER_SRC) -o server
+	mkdir -p bin
+	$(CXX) $(SERVER_SRC) -o ./bin/server
+
+
+clean:
+	rm -rf build
+	rm -rf bin
+	rm server
+
+.PHONY: clean
+
