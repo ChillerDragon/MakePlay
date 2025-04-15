@@ -1,12 +1,13 @@
 CXX := clang++
 CC := clang
 
-SERVER_SRC := src/server/server.cpp
+SERVER_SRCS := $(wildcard src/server/*.cpp)
+SERVER_OBJS := $(SERVER_SRCS:.cpp=.o)
 
 server: bin/server
 
-bin/server: objs/game.o objs/player.o $(SERVER_SRC) | bin
-	$(CXX) $(SERVER_SRC) objs/game.o objs/player.o -o ./bin/server
+bin/server: $(SERVER_OBJS) | bin
+	$(CXX) $(SERVER_OBJS) -o ./bin/server
 
 bin:
 	mkdir -p bin
