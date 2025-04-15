@@ -14,10 +14,10 @@ bin:
 objs:
 	mkdir -p objs
 
-objs/game.o: objs src/server/game.h src/server/game.cpp
+objs/game.o: src/server/game.h src/server/game.cpp
 	$(CXX) src/server/game.cpp -c -o ./objs/game.o
 
-objs/player.o: objs src/server/player.h src/server/player.cpp
+objs/player.o: src/server/player.h src/server/player.cpp
 	$(CXX) src/server/player.cpp -c -o ./objs/player.o
 
 clean:
