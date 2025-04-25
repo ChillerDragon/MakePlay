@@ -9,7 +9,7 @@ server: $(SERVER_OBJS)
 	@echo "SERVER_SRCS $(SERVER_SRCS)"
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
-objs/%.o: %.cpp
+objs/%.o: %.cpp %.h
 	@mkdir -p $(dir $@)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
